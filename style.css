@@ -1,0 +1,285 @@
+/* style.css */
+
+/* --- Global Styles & CSS Variables --- */
+:root {
+    --color-primary: #FF7043; 
+    --color-secondary: #FFEE58;
+    --color-accent: #26A69A;  
+    --color-background: #FFF9C4;
+    --color-text-dark: #37474F;  
+    --color-text-light: #FFFFFF; 
+    --color-card-bg: #FFFFFF;    
+    --color-hero-overlay: rgba(0, 0, 0, 0.3); 
+
+    --font-primary: 'Poppins', sans-serif; 
+    --font-headings: 'Pacifico', cursive; 
+
+    --border-radius: 8px; 
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+}
+
+* {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    line-height: 1.7; 
+    font-size: 16px; 
+}
+
+/* --- Language Specific Styling --- */
+.lang { /* Common class for all language spans */
+    display: none; /* Hide all language spans by default */
+}
+
+/* JS will add .active-lang-en or .active-lang-de to the body tag.
+   These rules then show the spans for the currently active language. */
+.active-lang-en .lang-en,
+.active-lang-de .lang-de {
+    display: inline; /* Spans are inline by default when visible */
+}
+
+/* --- Typography --- */
+h1, h2, h3 {
+    color: var(--color-primary); 
+    margin-bottom: 0.75em; 
+}
+
+h1.event-title {
+    font-family: var(--font-headings);
+    font-size: 3.5rem; 
+    color: var(--color-text-light); 
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7); 
+    margin-bottom: 0.25em;
+    position: relative; 
+    z-index: 2;
+}
+
+h2 {
+    font-size: 1.8rem; 
+    border-bottom: 2px solid var(--color-secondary); 
+    padding-bottom: 0.3em;
+    display: inline-block; /* Ensures border only spans the text content */
+}
+
+
+p {
+    margin-bottom: 1em; 
+}
+
+a {
+    color: var(--color-accent); 
+    text-decoration: none; 
+    transition: color 0.3s ease; 
+}
+
+a:hover, a:focus {
+    color: var(--color-primary); 
+    text-decoration: underline; 
+}
+
+.inline-link {
+    font-weight: 600; 
+}
+
+/* --- Layout & Structure --- */
+.container {
+    width: 90%; 
+    max-width: 960px; 
+    margin: 2em auto; 
+    padding: 0 15px; 
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    background-image: url('images/last-supper.jpg'); 
+    background-color: var(--color-primary); 
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat; 
+    
+    color: var(--color-text-light); 
+    padding: 4em 1em; 
+    text-align: center;
+    min-height: 60vh; 
+    position: relative; 
+
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-hero-overlay); 
+    z-index: 1; 
+}
+
+
+.hero-content {
+    max-width: 700px; 
+    position: relative; 
+    z-index: 2;
+}
+
+.event-tagline {
+    font-size: 1.5rem;
+    margin-bottom: 1.5em;
+    opacity: 0.95; 
+    color: var(--color-text-light);
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6); 
+    position: relative; 
+    z-index: 2;
+}
+
+.cta-button {
+    display: inline-block; 
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    padding: 0.8em 1.8em; 
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+    box-shadow: var(--box-shadow);
+    position: relative; 
+    z-index: 2;
+}
+
+.cta-button:hover, .cta-button:focus {
+    background-color: var(--color-primary); 
+    transform: translateY(-3px) scale(1.05); 
+    text-decoration: none; 
+    color: var(--color-text-light);
+}
+
+/* --- Content Sections & Cards --- */
+.content-section {
+    margin-bottom: 2.5em; 
+}
+
+.card {
+    background-color: var(--color-card-bg);
+    padding: 2em;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border-left: 6px solid var(--color-accent); 
+}
+
+.card ul {
+    list-style-position: inside; 
+    padding-left: 0; 
+}
+
+.card ul li {
+    margin-bottom: 0.5em; 
+}
+
+.event-flyer-image {
+    display: block; 
+    max-width: 100%; 
+    height: auto; 
+    border-radius: var(--border-radius); 
+    margin: 0 auto 1.5em auto; 
+    box-shadow: var(--box-shadow); 
+}
+
+.form-placeholder {
+    padding: 0; 
+    text-align: center; 
+    border-radius: var(--border-radius);
+    margin-top: 1.5em;
+    overflow: hidden; 
+}
+
+.form-placeholder iframe { 
+    max-width: 100%;
+    width: 100%; 
+    border-radius: var(--border-radius); 
+    border: none; 
+    min-height: 500px; 
+}
+
+/* --- Footer --- */
+.site-footer {
+    background-color: var(--color-text-dark); 
+    color: var(--color-background); 
+    text-align: center;
+    padding: 2em 1em;
+    margin-top: 3em; 
+}
+
+.site-footer p {
+    margin-bottom: 0.5em;
+}
+
+.language-switcher a.lang-link { /* Target language links specifically */
+    color: var(--color-secondary); 
+    margin: 0 0.3em; 
+    cursor: pointer; /* Indicate they are clickable */
+    text-decoration: none;
+}
+.language-switcher a.lang-link:hover, 
+.language-switcher a.lang-link:focus {
+    color: var(--color-text-light); 
+    text-decoration: underline;
+}
+.language-switcher a.lang-link.active { /* Style for the active language link */
+    font-weight: bold;
+    color: var(--color-text-light);
+    text-decoration: underline;
+    cursor: default;
+}
+
+
+/* --- Responsive Adjustments (Media Queries) --- */
+@media (max-width: 768px) {
+    h1.event-title {
+        font-size: 2.8rem; 
+    }
+    .event-tagline {
+        font-size: 1.2rem;
+    }
+    .hero-section {
+        padding: 3em 1em; 
+        min-height: 50vh; 
+    }
+    .card {
+        padding: 1.5em; 
+    }
+    h2 {
+        font-size: 1.6rem; 
+    }
+}
+
+@media (max-width: 480px) {
+    h1.event-title {
+        font-size: 2.2rem; 
+    }
+    .event-tagline {
+        font-size: 1rem;
+    }
+    .cta-button {
+        font-size: 1rem;
+        padding: 0.7em 1.5em; 
+    }
+    .container {
+        width: 95%; 
+    }
+     .card {
+        padding: 1em; 
+    }
+}
