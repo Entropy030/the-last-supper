@@ -8,6 +8,7 @@
     --color-text-modern: #212529; /* Dark Grey for Readability */
     --color-card-bg-modern: #FFFFFF; /* White Card Background */
     --color-hero-text-modern: #FFFFFF; /* Light text for hero */
+    --color-hero-overlay: rgba(0, 0, 0, 0.5); /* Overlay for hero image - increased for better legibility */
     --color-link-modern: #0056b3; /* Darker blue for links */
 
     --font-primary-modern: 'Roboto', sans-serif;
@@ -97,26 +98,29 @@ a:hover, a:focus {
 
 /* --- Hero Section --- */
 .hero-section {
-    background: linear-gradient(45deg, var(--color-primary-modern), var(--color-secondary-modern));
-    /* Or: background-color: var(--color-primary-modern); */
+    background-image: url('images/last-supper.jpg');
+    background-color: var(--color-primary-modern); /* Fallback color */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     color: var(--color-hero-text-modern);
     padding: 5em 1.5em; /* More padding */
     text-align: center;
-    min-height: auto; /* Adjust as needed, no specific image to fit */
+    min-height: 60vh; /* Restore min-height similar to original theme for image visibility */
     position: relative;
-    border-bottom: 5px solid var(--color-primary-modern); /* Example accent */
+    /* border-bottom: 5px solid var(--color-primary-modern); */ /* Optional: remove or keep based on preference */
 }
 
-.hero-section::before { /* Remove overlay if not needed, or adjust */
+.hero-section::before { /* Overlay */
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.1); /* Subtle overlay if desired */
+    background-color: var(--color-hero-overlay); 
     z-index: 1;
-    display: none; /* Initially hide, enable if needed */
+    display: block; /* Ensure overlay is active */
 }
 
 .hero-content {
@@ -179,18 +183,27 @@ a:hover, a:focus {
     border-radius: var(--border-radius-modern);
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    transition: background-color 0.2s ease-in-out, transform 0.2s ease;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease, box-shadow 0.2s ease-in-out;
     box-shadow: var(--box-shadow-modern-light);
     border: none; /* Remove border if any */
     position: relative;
     z-index: 2;
 }
 
-.cta-button:hover, .cta-button:focus {
+.cta-button:hover {
     background-color: var(--color-link-modern); /* Darken on hover */
     transform: translateY(-2px);
     text-decoration: none;
     color: var(--color-hero-text-modern);
+    box-shadow: var(--box-shadow-modern); /* Slightly more pronounced shadow on hover */
+}
+
+.cta-button:focus {
+    background-color: var(--color-link-modern); /* Consistent background change */
+    color: var(--color-hero-text-modern);
+    text-decoration: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.35); /* Focus ring using primary color's blue */
+    outline: none; /* Remove default browser outline if custom shadow is used */
 }
 
 /* --- Content Sections & Cards --- */
@@ -225,6 +238,12 @@ a:hover, a:focus {
     margin: 0 auto 2em auto; /* More bottom margin */
     box-shadow: var(--box-shadow-modern-light);
     border: 1px solid #dee2e6; /* Light border for images */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-flyer-image:hover {
+    transform: scale(1.03);
+    box-shadow: var(--box-shadow-modern); /* Use the slightly stronger shadow on hover */
 }
 
 /* --- Form Placeholder (Google Form) --- */
