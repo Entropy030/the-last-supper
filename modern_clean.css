@@ -1,0 +1,307 @@
+/* modern_clean.css */
+
+/* --- CSS Variables --- */
+:root {
+    --color-primary-modern: #007BFF; /* Modern Blue */
+    --color-secondary-modern: #6C757D; /* Complementary Grey/Light Blue */
+    --color-background-modern: #F8F9FA; /* Light Clean Background */
+    --color-text-modern: #212529; /* Dark Grey for Readability */
+    --color-card-bg-modern: #FFFFFF; /* White Card Background */
+    --color-hero-text-modern: #FFFFFF; /* Light text for hero */
+    --color-link-modern: #0056b3; /* Darker blue for links */
+
+    --font-primary-modern: 'Roboto', sans-serif;
+    --font-headings-modern: 'Montserrat', sans-serif;
+
+    --border-radius-modern: 6px;
+    --box-shadow-modern: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --box-shadow-modern-light: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Global Styles & Basic Reset --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-primary-modern);
+    background-color: var(--color-background-modern);
+    color: var(--color-text-modern);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Language Specific Styling (Keep functionality) --- */
+.lang { 
+    display: none; 
+}
+.active-lang-en .lang-en,
+.active-lang-de .lang-de {
+    display: inline; 
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 { /* Added h4-h6 for completeness */
+    font-family: var(--font-headings-modern);
+    color: var(--color-primary-modern);
+    margin-bottom: 0.75em;
+    line-height: 1.3;
+}
+
+h1.event-title { /* Specifically for the hero title */
+    font-size: 3rem; /* Slightly smaller for a cleaner look */
+    color: var(--color-hero-text-modern); /* Ensure contrast on hero */
+    text-shadow: none; /* Remove previous text-shadow */
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 2rem;
+    border-bottom: 2px solid var(--color-primary-modern);
+    padding-bottom: 0.3em;
+    display: inline-block;
+    color: var(--color-text-modern); /* Main text color for section titles */
+}
+
+p {
+    margin-bottom: 1.25em;
+}
+
+a {
+    color: var(--color-link-modern);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover, a:focus {
+    color: var(--color-primary-modern);
+    text-decoration: underline;
+}
+
+.inline-link {
+    font-weight: bold; /* Keep emphasis */
+}
+
+
+/* --- Layout & Structure --- */
+.container {
+    width: 90%;
+    max-width: 1000px; /* Slightly wider for modern feel */
+    margin: 2.5em auto;
+    padding: 0 20px;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    background: linear-gradient(45deg, var(--color-primary-modern), var(--color-secondary-modern));
+    /* Or: background-color: var(--color-primary-modern); */
+    color: var(--color-hero-text-modern);
+    padding: 5em 1.5em; /* More padding */
+    text-align: center;
+    min-height: auto; /* Adjust as needed, no specific image to fit */
+    position: relative;
+    border-bottom: 5px solid var(--color-primary-modern); /* Example accent */
+}
+
+.hero-section::before { /* Remove overlay if not needed, or adjust */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1); /* Subtle overlay if desired */
+    z-index: 1;
+    display: none; /* Initially hide, enable if needed */
+}
+
+.hero-content {
+    max-width: 750px;
+    position: relative;
+    z-index: 2;
+}
+
+.event-tagline {
+    font-size: 1.3rem; /* Adjusted size */
+    margin-bottom: 2em;
+    opacity: 0.9;
+    color: var(--color-hero-text-modern); /* Ensure contrast */
+    text-shadow: none; /* Remove previous text-shadow */
+}
+
+/* Language Switcher in Header - Modern Styling */
+.hero-section .language-switcher {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 10;
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.15); /* Light background for visibility */
+    border-radius: var(--border-radius-modern);
+}
+
+.hero-section .language-switcher a.lang-link {
+    color: var(--color-hero-text-modern);
+    font-size: 0.9em;
+    text-decoration: none;
+    margin: 0 0.4em;
+    padding: 5px 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-section .language-switcher a.lang-link:hover,
+.hero-section .language-switcher a.lang-link:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+}
+
+.hero-section .language-switcher a.lang-link.active {
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+
+/* --- Call to Action Button --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-primary-modern);
+    color: var(--color-hero-text-modern); /* Text color for primary button */
+    padding: 0.9em 2em;
+    font-size: 1.1rem;
+    font-family: var(--font-headings-modern); /* Use heading font for button */
+    font-weight: 600;
+    border-radius: var(--border-radius-modern);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease;
+    box-shadow: var(--box-shadow-modern-light);
+    border: none; /* Remove border if any */
+    position: relative;
+    z-index: 2;
+}
+
+.cta-button:hover, .cta-button:focus {
+    background-color: var(--color-link-modern); /* Darken on hover */
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: var(--color-hero-text-modern);
+}
+
+/* --- Content Sections & Cards --- */
+.content-section {
+    margin-bottom: 3em;
+}
+
+.card {
+    background-color: var(--color-card-bg-modern);
+    padding: 2.5em; /* More padding */
+    border-radius: var(--border-radius-modern);
+    box-shadow: var(--box-shadow-modern);
+    border: 1px solid #e9ecef; /* Subtle border */
+    /* Remove left border from previous theme: border-left: none; */
+}
+
+.card ul {
+    list-style-position: inside;
+    padding-left: 0; /* Reset padding */
+}
+
+.card ul li {
+    margin-bottom: 0.6em;
+}
+
+/* --- Flyer Image --- */
+.event-flyer-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-modern);
+    margin: 0 auto 2em auto; /* More bottom margin */
+    box-shadow: var(--box-shadow-modern-light);
+    border: 1px solid #dee2e6; /* Light border for images */
+}
+
+/* --- Form Placeholder (Google Form) --- */
+.form-placeholder {
+    padding: 0;
+    text-align: center;
+    border-radius: var(--border-radius-modern);
+    margin-top: 2em;
+    overflow: hidden; /* Keep this to clip iframe border-radius */
+}
+
+.form-placeholder iframe {
+    max-width: 100%;
+    width: 100%;
+    border-radius: var(--border-radius-modern);
+    border: 1px solid #dee2e6; /* Consistent border for iframes */
+    min-height: 550px; /* Adjust as needed */
+}
+
+/* --- Footer --- */
+.site-footer {
+    background-color: var(--color-text-modern);
+    color: var(--color-background-modern); /* Light text on dark background */
+    text-align: center;
+    padding: 2.5em 1.5em;
+    margin-top: 3.5em;
+}
+
+.site-footer p {
+    margin-bottom: 0; /* Remove default p margin in footer */
+    font-size: 0.95rem;
+}
+
+/* --- Responsive Adjustments (Basic) --- */
+@media (max-width: 768px) {
+    h1.event-title {
+        font-size: 2.5rem;
+    }
+    .event-tagline {
+        font-size: 1.15rem;
+    }
+    .hero-section {
+        padding: 4em 1em;
+    }
+    .card {
+        padding: 2em;
+    }
+    h2 {
+        font-size: 1.75rem;
+    }
+    .hero-section .language-switcher {
+        top: 15px;
+        right: 15px;
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1.event-title {
+        font-size: 2rem;
+    }
+    .event-tagline {
+        font-size: 1rem;
+    }
+    .cta-button {
+        font-size: 1rem;
+        padding: 0.8em 1.5em;
+    }
+    .container {
+        width: 95%;
+        padding: 0 15px;
+    }
+     .card {
+        padding: 1.5em;
+    }
+}
+
+/* Ensure Google Fonts are linked in HTML:
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+*/
