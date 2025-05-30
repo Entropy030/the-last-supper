@@ -105,9 +105,13 @@ a:hover, a:focus {
     background-repeat: no-repeat;
     color: var(--color-hero-text-modern);
     padding: 5em 1.5em; /* More padding */
-    text-align: center;
+    /* text-align: center; */ /* text-align on hero-content will handle this */
     min-height: 60vh; /* Restore min-height similar to original theme for image visibility */
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally center the .hero-content block */
+    justify-content: flex-end; /* Vertically align .hero-content to the bottom */
     /* border-bottom: 5px solid var(--color-primary-modern); */ /* Optional: remove or keep based on preference */
 }
 
@@ -127,6 +131,8 @@ a:hover, a:focus {
     max-width: 750px;
     position: relative;
     z-index: 2;
+    text-align: center; /* Ensure text within this container is centered */
+    padding-bottom: 3em; /* Add padding to the bottom of the content */
 }
 
 .event-tagline {
