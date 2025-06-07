@@ -2,13 +2,13 @@
 
 /* --- CSS Variables --- */
 :root {
-    --color-primary-modern: #007BFF; /* Modern Blue */
+    --color-primary-modern: #00bcd4; /* Tropical turquoise */
     --color-secondary-modern: #6C757D; /* Complementary Grey/Light Blue */
     --color-background-modern: #F8F9FA; /* Light Clean Background */
     --color-text-modern: #212529; /* Dark Grey for Readability */
     --color-card-bg-modern: #FFFFFF; /* White Card Background */
     --color-hero-text-modern: #FFFFFF; /* Light text for hero */
-    --color-hero-overlay: rgba(0, 0, 0, 0.5); /* Overlay for hero image - increased for better legibility */
+    --color-hero-overlay: rgba(0, 0, 0, 0.25); /* Lighter overlay for sunny feel */
     --color-link-modern: #0056b3; /* Darker blue for links */
 
     --font-primary-modern: 'Roboto', sans-serif;
@@ -29,7 +29,11 @@
 body {
     font-family: var(--font-primary-modern);
     background-color: var(--color-background-modern);
+    /* Soft wave pattern for a summery vibe */
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCAxMjAgNTAiPjxwYXRoIGQ9Ik0wIDMwIFExNSAyMCAzMCAzMCBUNjAgMzAgVDkwIDMwIFQxMjAgMzAgVjUwIEgweiIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjE1Ii8+PC9zdmc+");
+    background-repeat: repeat;
     color: var(--color-text-modern);
+    font-weight: 300;
     line-height: 1.6;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
@@ -233,6 +237,24 @@ a:hover, a:focus {
 
 .card ul li {
     margin-bottom: 0.6em;
+}
+
+/* Fun list styling for the "Why Attend" section */
+.why-attend-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2em;
+}
+
+.why-attend-list li {
+    display: flex;
+    align-items: center;
+}
+
+.why-attend-list .material-symbols-outlined {
+    margin-right: 0.5em;
+    font-size: 1.5rem;
+    color: var(--color-primary-modern);
 }
 
 /* --- Flyer Image --- */
